@@ -2,8 +2,8 @@ package Definition;
 
 import Adt.DoublyListAdt;
 
-public class MyDoublyList<E> implements DoublyListAdt {
-
+public class MyDoublyList<E> implements DoublyListAdt<E> {
+    int size =0;
     @Override
     public boolean add(E item) {
         return false;
