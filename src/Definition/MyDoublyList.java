@@ -26,7 +26,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return 0;
     }
 
-    public boolean addFirst(E item) {
+    private boolean addFirst(E item) {
         if (head == null) {
             Node<E> newNode = new Node<>(item, null, null);
             head = newNode;
@@ -42,7 +42,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    public boolean addAfter(E item, Node<E> afterNode) {
+    private boolean addAfter(E item, Node<E> afterNode) {
         Node<E> nextNode = afterNode.getNext();
         if (nextNode == null) {
             Node<E> newNode = new Node<>(item, afterNode, null);
