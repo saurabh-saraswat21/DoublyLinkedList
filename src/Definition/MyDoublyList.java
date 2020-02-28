@@ -5,12 +5,12 @@ import Adt.DoublyListAdt;
 public class MyDoublyList<E> implements DoublyListAdt {
 
     @Override
-    public boolean add(Object item) {
+    public boolean add(E item) {
         return false;
     }
 
     @Override
-    public Object remove() {
+    public E remove() {
         return null;
     }
 
@@ -22,5 +22,9 @@ public class MyDoublyList<E> implements DoublyListAdt {
     @Override
     public int search() {
         return 0;
+    }
+    private boolean addFirst(E item)
+    {
+        return true;
     }
 }
