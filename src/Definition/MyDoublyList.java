@@ -4,6 +4,8 @@ import Adt.DoublyListAdt;
 
 public class MyDoublyList<E> implements DoublyListAdt<E> {
     int size =0;
+    private Node<E> head=null;
+    private Node<E> tail = null;
     @Override
     public boolean add(E item) {
         return false;
@@ -25,6 +27,21 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
     }
     private boolean addFirst(E item)
     {
+        if(head==null)
+        {
+            Node<E> newnode = new Node<>(item,null,null);
+            head = newnode;
+            tail=newnode;
+            size++;
+        }
+        else
+        {
+            Node<E> newnode = new Node<>(item,null,head);
+            head.previous=newnode;
+            head=newnode;
+            size++;
+
+        }
         return true;
     }
     private static class Node<E> {
