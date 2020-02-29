@@ -67,6 +67,17 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return response;
     }
 
+    public boolean add(E item, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(index);
+        } else if (index == 0) {
+            addFirst(item);
+        } else {
+            addAfter(item, getNode(index - 1));
+        }
+        return true;
+    }
+
     private static class Node<E> {
         private E data;
         private Node<E> previous;
