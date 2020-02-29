@@ -3,9 +3,10 @@ package Definition;
 import Adt.DoublyListAdt;
 
 public class MyDoublyList<E> implements DoublyListAdt<E> {
-    int size =0;
-    private Node<E> head=null;
+    int size = 0;
+    private Node<E> head = null;
     private Node<E> tail = null;
+
     @Override
     public boolean add(E item) {
         return false;
@@ -56,6 +57,14 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
             size++;
         }
         return true;
+    }
+
+    private Node<E> getNode(int index) {
+        Node<E> response = head;
+        for (int i = 0; i < index && response != null; i++) {
+            response = response.getNext();
+        }
+        return response;
     }
 
     private static class Node<E> {
