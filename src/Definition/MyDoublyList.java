@@ -9,7 +9,8 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     @Override
     public boolean add(E item) {
-        return false;
+        add(item, size);
+        return true;
     }
 
     @Override
