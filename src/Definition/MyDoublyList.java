@@ -79,7 +79,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    public Node<E> removeFirst() {
+    private Node<E> removeFirst() {
         Node<E> response = head;
         head.getNext().previous = null;
         head = head.getNext();
