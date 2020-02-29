@@ -79,6 +79,14 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
+    public Node<E> removeFirst() {
+        Node<E> response = head;
+        head.getNext().previous = null;
+        head = head.getNext();
+        System.out.println("now first node=" + getNode(0) + "," + "Now previos of second node" + getNode(1).previous);
+        return response;
+    }
+
     private static class Node<E> {
         private E data;
         private Node<E> previous;
@@ -100,6 +108,11 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
         private Node<E> getNext() {
             return next;
+        }
+
+        @Override
+        public String toString() {
+            return this.getData().toString();
         }
     }
 }
