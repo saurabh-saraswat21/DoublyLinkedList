@@ -81,9 +81,13 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     private Node<E> removeFirst() {
         Node<E> response = head;
-        head.getNext().previous = null;
-        head = head.getNext();
-        System.out.println("now first node=" + getNode(0) + "," + "Now previos of second node" + getNode(1).previous);
+        if (head != null) {
+            head.getNext().previous = null;
+            head = head.getNext();
+            size--;
+        } else {
+            System.out.println("List is empty");
+        }
         return response;
     }
 
