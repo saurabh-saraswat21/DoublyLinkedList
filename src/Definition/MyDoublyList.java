@@ -60,11 +60,12 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    private Node<E> getNode(int index) {
+    public Node<E> getNode(int index) {
         Node<E> response = head;
         for (int i = 0; i < index && response != null; i++) {
             response = response.getNext();
         }
+        //System.out.println("response="+response.getData());
         return response;
     }
 
@@ -79,7 +80,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    private Node<E> removeFirst() {
+    public Node<E> removeFirst() {
         Node<E> response = head;
         if (head != null) {
             head.getNext().previous = null;
@@ -88,6 +89,20 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         } else {
             System.out.println("List is empty");
         }
+        return response;
+    }
+
+    public Node<E> removeAfter(Node<E> afterNode) {
+        Node<E> response = afterNode.next;
+        if (response != null) {
+            afterNode.next = response.getNext();
+            afterNode.getNext().previous = afterNode;
+            System.out.println(afterNode.getNext());
+            System.out.println("afterNode.next.data=  " + afterNode.getNext().getData());
+            System.out.println("3rd node.next=  " + getNode(3).getNext() + "    5rth node.previous:- " + getNode(4).getPrevious());
+            size--;
+        }
+
         return response;
     }
 
