@@ -9,9 +9,9 @@ public class Main {
 
             list.add(i);
         }
-        System.out.println(list.toString());
+        System.out.println(list);
 
-        list.removeAfter(list.getNode(3));
+        list.remove(3);
 
         System.out.println(list);
 
