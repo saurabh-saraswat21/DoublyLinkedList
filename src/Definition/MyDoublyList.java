@@ -15,7 +15,8 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     @Override
     public E remove() {
-        Node<E> response;
+        Node<E> response = null;
+        return response.getData();
 
     }
 
