@@ -15,7 +15,8 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     @Override
     public E remove() {
-        return null;
+        Node<E> response = removeAfter(getNode(size - 2));
+        return response.getData();
     }
 
     @Override
@@ -82,22 +83,16 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
     public Node<E> removeFirst() {
         Node<E> response = head;
         if (head != null) {
-            head.getNext().previous = null;
             head = head.getNext();
+            head.previous = null;
             size--;
-        } else {
-            System.out.println("List is empty");
         }
         return response;
     }
 
     private Node<E> removeAfter(Node<E> afterNode) {
-        Node<E> response = afterNode.next;
-        if (response != null) {
-            afterNode.next = response.getNext();
-            afterNode.getNext().previous = afterNode;
-            size--;
-        }
+        Node<E> response = null;
+
 
         return response;
     }
@@ -109,7 +104,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         } else if (index == 0) {
             response = removeFirst();
         } else {
-            response = removeAfter(getNode(index));
+            response = removeAfter(getNode(index - 1));
         }
         return response;
     }

@@ -11,7 +11,7 @@ public class Main {
         }
         System.out.println(list);
 
-        list.remove(3);
+        list.removeFirst();
 
         System.out.println(list);
 
