@@ -11,7 +11,8 @@ public class Main {
         }
         System.out.println(list);
 
-        list.removeAfter(list.getNode(2));
+        list.remove();
+        list.remove();
 
         System.out.println(list);
 

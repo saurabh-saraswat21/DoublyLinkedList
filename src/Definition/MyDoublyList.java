@@ -15,7 +15,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     @Override
     public E remove() {
-        Node<E> response = null;
+        Node<E> response = remove(size - 1);
         return response.getData();
 
     }
@@ -94,10 +94,11 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
     public Node<E> removeAfter(Node<E> afterNode) {
         Node<E> response = afterNode.next;
         Node<E> nextNode = response.getNext();
-        if (afterNode.previous == null) {
-            removeFirst();
-        } else if (afterNode.next != null) {
+        if (nextNode != null) {
             nextNode.previous = afterNode;
+            afterNode.next = nextNode;
+            size--;
+        } else {
             afterNode.next = nextNode;
             size--;
         }
@@ -106,7 +107,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
     }
 
     public Node<E> remove(int index) {
-        Node<E> response = null;
+        Node<E> response;
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(index);
         } else if (index == 0) {
