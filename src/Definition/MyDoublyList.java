@@ -62,7 +62,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    public Node<E> getNode(int index) {
+    private Node<E> getNode(int index) {
         Node<E> response = head;
         for (int i = 0; i < index && response != null; i++) {
             response = response.getNext();
@@ -70,7 +70,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return response;
     }
 
-    public boolean add(E item, int index) {
+    private boolean add(E item, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(index);
         } else if (index == 0) {
@@ -81,7 +81,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return true;
     }
 
-    public Node<E> removeFirst() {
+    private Node<E> removeFirst() {
         Node<E> response = head;
         if (head != null) {
             head = head.getNext();
@@ -91,7 +91,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return response;
     }
 
-    public Node<E> removeAfter(Node<E> afterNode) {
+    private Node<E> removeAfter(Node<E> afterNode) {
         Node<E> response = afterNode.next;
         Node<E> nextNode = response.getNext();
         if (nextNode != null) {
@@ -100,6 +100,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
             size--;
         } else {
             afterNode.next = nextNode;
+            tail = afterNode;
             size--;
         }
 

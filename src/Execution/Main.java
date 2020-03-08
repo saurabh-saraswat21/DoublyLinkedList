@@ -12,10 +12,9 @@ public class Main {
         System.out.println(list);
 
         list.remove();
-        list.remove();
+        //list.remove();
 
         System.out.println(list);
-
     }
 
 
