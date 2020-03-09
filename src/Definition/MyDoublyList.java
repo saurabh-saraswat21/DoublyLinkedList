@@ -22,7 +22,28 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     @Override
     public void sort() {
-
+        for (int i = 1; i < size; i++) {
+            Node<E> node1 = getNode(i - 1);
+            Node<E> node2 = getNode(i);
+            if (node1.compareTo(node2) > 0) {
+                if (i == 1) {
+                    node1.next = node2.next;
+                    node1.previous = node2;
+                    node2.getNext().previous = node1;
+                    node2.next = node1;
+                    node2.previous = null;
+                    head = node2;
+                } else if (i == size - 1) {
+                    node2.next = node1;
+                    node2.previous = node1.previous;
+                    node1.next = null;
+                    node1.getPrevious().next = node2;
+                    node1.previous = node2;
+                    tail = node1;
+                } else {
+                }
+            }
+        }
     }
 
     @Override
