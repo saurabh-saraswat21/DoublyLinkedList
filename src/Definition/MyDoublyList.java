@@ -109,7 +109,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
 
     public Node<E> remove(int index) {
         Node<E> response;
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(index);
         } else if (index == 0) {
             response = removeFirst();
@@ -160,6 +160,15 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         @Override
         public String toString() {
             return this.getData().toString();
+        }
+
+        @Override
+        public int compareTo(Node<E> node1) {
+            String data1 = this.getData().toString();
+            Integer data01 = Integer.parseInt(data1);
+            String data2 = node1.getData().toString();
+            Integer data02 = Integer.parseInt(data2);
+            return data01.compareTo(data02);
         }
     }
 }
