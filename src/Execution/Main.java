@@ -5,15 +5,12 @@ import Definition.MyDoublyList;
 public class Main {
     public static void main(String[] args) {
         MyDoublyList<Integer> list = new MyDoublyList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 10; i > 0; i--) {
 
             list.add(i);
         }
         System.out.println(list);
-
-        list.remove();
-        //list.remove();
-
+        list.sort();
         System.out.println(list);
     }
 

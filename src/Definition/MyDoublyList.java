@@ -134,7 +134,20 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         return sb.toString();
     }
 
-    private static class Node<E> {
+    public String toStringt() {
+        final StringBuilder sb = new StringBuilder("[");
+        Node<E> currentNode = tail;
+        for (int i = 0; i < size && currentNode != null; i++) {
+            E data = currentNode.getData();
+            sb.append(data);
+            sb.append(i < size - 1 ? ", " : "");
+            currentNode = currentNode.getPrevious();
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    private static class Node<E> implements Comparable<Node<E>> {
         private E data;
         private Node<E> previous;
         private Node<E> next;
@@ -152,6 +165,7 @@ public class MyDoublyList<E> implements DoublyListAdt<E> {
         private Node<E> getPrevious() {
             return previous;
         }
+
 
         private Node<E> getNext() {
             return next;
